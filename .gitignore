@@ -1,0 +1,12 @@
+config.json
+msmtprc.local
+msmtp.log
+test_email.txt
+.bookops_last_sync
+.bookops_sent_ids
+.bookops_sent_ids.bak
+.bookops_usb_sent_ids
+.kindle_sync_*/
+__pycache__/
+*.py[cod]
+.env

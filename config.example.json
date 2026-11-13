@@ -1,0 +1,8 @@
+{
+  "incoming": "~/Books/Incoming",
+  "manual_review": "~/Books/Manual_Review",
+  "calibre_library": "~/Calibre Library",
+  "gdrive_remote_path": "gdrive:Incoming",
+  "kindle_email": "your-kindle@kindle.com",
+  "convert_pdfs": true
+}

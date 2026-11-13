@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+set -o errexit
+set -o nounset
+
+DIR="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
+
+case "${1:-}" in
+    doctor)
+        python3 "$DIR/scripts/doctor.py"
+        ;;
+    run)
+        bash "$DIR/scripts/pipeline.sh"
+        ;;
+    sync)
+        bash "$DIR/scripts/sync.sh"
+        ;;
+    refresh)
+        bash "$DIR/scripts/refresh.sh"
+        ;;
+    dedup)
+        python3 "$DIR/scripts/dedup.py"
+        ;;
+    usb-sync)
+        python3 "$DIR/scripts/usb_sync.py" "${@:2}"
+        ;;
+    watch)
+        bash "$DIR/scripts/watcher.sh"
+        ;;
+    version)
+        echo "BookOps v1.0.0"
+        ;;
+    *)
+        echo "Usage: $0 <command>"
+        echo ""
+        echo "Commands:"
+        echo "  doctor    Run system diagnostics"
+        echo "  run       Full pipeline: pull, ingest, USB sync"
+        echo "  sync      Email new books to Kindle via msmtp"
+        echo "  refresh   Update covers in Calibre and force-sync to Kindle"
+        echo "  dedup     Remove duplicate book files from Kindle"
+        echo "  usb-sync  Sync new books to Kindle via USB [--force]"
+        echo "  version   Print version information"
+        echo "  watch     Start cloud sync watcher daemon"
+        exit 1
+        ;;
+esac

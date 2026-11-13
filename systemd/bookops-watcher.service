@@ -1,0 +1,16 @@
+[Unit]
+Description=BookOps Cloud Sync Watcher
+Documentation=https://github.com/georgian3768/bookops
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/bookops watch
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target
