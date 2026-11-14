@@ -121,6 +121,10 @@ rejects mail from unapproved senders.
 The doctor checks binaries, directories, config keys and the rclone remote. Fix anything
 marked with a red cross before running the pipeline.
 
+<img src="docs/doctor.png" alt="bookops doctor output" width="820">
+
+*`./bookops doctor` reports each dependency, path and the cloud remote in one pass.*
+
 ### 5. Optional: run the watcher as a user service
 
 ```bash
